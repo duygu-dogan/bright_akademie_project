@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap'
 import logo from '../../Images/HeaderLogo.png'
 import BgTechno from '../../Images/BgTechno.jpg'
 
-const Contact = () => {
+const InstructorDetail = () => {
   return (
       <>
           <Container fluid className='p-0 main-page'>
@@ -20,4 +20,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default InstructorDetail

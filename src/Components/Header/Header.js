@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Navbar, Nav, NavbarBrand, Offcanvas } from 'react-bootstrap';
-import logo from './HeaderLogo.png';
+import logo from '../../Images/HeaderLogo.png';
 import "./Header.css"
 import { NavLink } from 'react-router-dom';
 
 //offcanvas'ta linke tıklandığında kendisinin kapanması gerekli.
 
 function Header() {
+    const[scroll, setScroll] = useState(false);
+    const changeNavbarColor = () => {
+        if(window.scrollY >= 90){
+            setScroll(true)
+        }else{
+            setScroll(false)
+        }
+    };
+    window.addEventListener('scroll', changeNavbarColor);
 
     return (
         <>
             {['lg'].map((expand) => (
-                <Navbar fixed='top' key={expand} expand={expand} data-bs-theme="dark" className=' p-2'>
+                <Navbar fixed='top' key={expand} expand={expand} data-bs-theme="dark" className={scroll ? 'navbar-scrolled' : ''} id='navbar'>
                     <Container fluid className='mx-5'>
                         <NavbarBrand>
                             <NavLink className='nav-link' to="/">
