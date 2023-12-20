@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Container, Navbar, Nav, NavbarBrand, Offcanvas } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Navbar, Nav, NavbarBrand, Offcanvas, Image } from 'react-bootstrap';
 import logo from '../../Images/HeaderLogo.png';
 import "./Header.css"
 import { NavLink } from 'react-router-dom';
@@ -24,7 +24,7 @@ function Header() {
                     <Container fluid className='mx-5'>
                         <NavbarBrand>
                             <NavLink className='nav-link' to="/">
-                                <img className='logo' src={logo} />
+                                <Image className='logo' src={logo}/>
                             </NavLink>
                         </NavbarBrand>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -35,7 +35,7 @@ function Header() {
                             className="offcanvas">
                             <Offcanvas.Header closeButton>
                                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} >
-                                    <img className='logo' src={logo} />
+                                    <Image className='logo' src={logo}/>
                                 </Offcanvas.Title>
                             </Offcanvas.Header>
                             <Offcanvas.Body variant='dark' className='pt-0'>

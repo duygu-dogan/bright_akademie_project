@@ -37,7 +37,7 @@
     align-items: center;
     justify-content: center;
     gap: 50px;
-    padding-top: 100px;
+    padding-top: 250px;
 }
 
 .main-title {
@@ -165,5 +165,15 @@
 
     .main-item-text {
         font-size: 1rem;
+    }
+}
+@media screen and (max-width: 991px){
+    .bg-img {
+    height: 1700px;
+    }
+}
+@media screen and (max-width: 575px) {
+    .bg-img {
+        height: 2800px;
     }
 }
