@@ -50,8 +50,8 @@ const Homepage = () => {
               <p className='main-item-text'>Mülakat Simülasyonu</p>
             </Col>
           </Row>
+          <Footer></Footer>
         </div>
-        <Footer></Footer>
       </Container>
       
     </>

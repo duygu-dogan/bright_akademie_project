@@ -2,5 +2,16 @@
     color: white !important;
 }
 .footer-bg {
-    background-color: rgba(0, 0, 0, .95);
+    width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+}
+@media screen and (max-width: 768px) {
+    .logo {
+        width: 200px;
+    }
+}
+@media screen and (max-width: 612px) {
+    .logo {
+        width: 150px;
+    }
 }
