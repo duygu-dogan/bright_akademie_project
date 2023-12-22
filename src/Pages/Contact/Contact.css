@@ -1,0 +1,43 @@
+
+.contact-content{
+    display: flex;
+    width: 80vw;
+    column-gap: 40px;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.form{
+    width: 40%;
+    color: aliceblue;
+}
+.map{
+    display: flex;
+    justify-content: center;
+    height: 500px;
+}
+.floating-whatsapp-button{
+    bottom: 3rem !important;
+}
+
+@media screen and (max-width: 1000px) {
+    .contact-content {
+            flex-direction: column;
+            row-gap: 70px;
+        }
+}
+@media screen and (max-width: 1000px) {
+    .form {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .map {
+        width: 500px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .bg-img2{
+        height: 1300px;
+    }
+}

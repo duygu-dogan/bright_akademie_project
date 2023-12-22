@@ -11,6 +11,8 @@
 
 .offcanvas-body{
     align-items: center !important;
+    background: transparent !important;
+   
 }
 .navbar-nav a{
 color: rgba(255, 255, 255, 0.55);

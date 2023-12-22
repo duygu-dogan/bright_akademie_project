@@ -33,12 +33,12 @@ function Header() {
                             aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
                             placement="end"
                             className="offcanvas">
-                            <Offcanvas.Header style={{ backgroundColor: 'rgba(0,0,0,.5)' }} closeButton>
+                            <Offcanvas.Header closeButton>
                                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} >
                                     <Image className='logo' src={logo}/>
                                 </Offcanvas.Title>
                             </Offcanvas.Header>
-                            <Offcanvas.Body variant='dark' style={{backgroundColor: 'rgba(0, 0, 0, .5)'}} className='pt-0'>
+                            <Offcanvas.Body className='pt-0'>
                                 <Nav className='justify-content-end flex-grow-1 pe-3'>
                                     <NavLink className='nav-link' to="/" aria-current="page">Home</NavLink>
                                     <NavLink className='nav-link' to='/about-us'>About Us</NavLink>
