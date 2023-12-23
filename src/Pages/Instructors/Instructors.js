@@ -7,12 +7,6 @@ const Instructors = () => {
   return (
     <>
       <Container fluid className='p-0 main-page'>
-        <div className='main-page-logo' style={{ backgroundImage: `url(${logo})`, backgroundRepeat: 'no-repeat', backgroundSize: '50rem', backgroundPositionY: 'center', backgroundPositionX: 'center' }}>
-          <h1 className='main-title'></h1>
-          <h3 className='sub-title'></h3>
-
-        </div>
-
         <div className='bg-img' style={{ backgroundImage: `url(${BgTechno})`, backgroundRepeat: 'no-repeat', backgroundSize: "cover" }}>
         </div>
       </Container>

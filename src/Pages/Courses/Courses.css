@@ -1,0 +1,27 @@
+.card-body{
+    text-align: center;
+}
+.card-text{
+    color: aliceblue;
+}
+
+.card-title{
+    color: #f43dd9;
+    margin-bottom: 20px;
+}
+.col{
+    display: flex;
+    justify-content: center;
+}
+.card{
+    width: 350px;
+    height: 350px;
+    background: transparent;
+    background-color: rgba(0, 0, 0, .5);
+    border: 1px solid rgb(196, 247, 249);
+    box-shadow: 0 0 10px rgb(196, 247, 249);
+}
+.row{
+    justify-content: center;
+    align-items: center;
+}
