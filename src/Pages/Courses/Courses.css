@@ -1,12 +1,14 @@
 .card-body{
     text-align: center;
+    margin-top: 10px;
 }
 .card-text{
     color: aliceblue;
+    margin: 0;
 }
 
 .card-title{
-    color: #f43dd9;
+    color: #f389e3;
     margin-bottom: 20px;
 }
 .col{
@@ -15,13 +17,33 @@
 }
 .card{
     width: 350px;
-    height: 350px;
+    height: 450px;
     background: transparent;
     background-color: rgba(0, 0, 0, .5);
     border: 1px solid rgb(196, 247, 249);
     box-shadow: 0 0 10px rgb(196, 247, 249);
+    padding: 20px 0;
 }
 .row{
     justify-content: center;
     align-items: center;
+}
+
+.btn{
+    background: transparent;
+    border: 1px solid rgb(196, 247, 249);
+    transition-duration: .1s;
+    color: #f389e3;
+}
+
+.btn:hover{
+    background-color: rgba(196, 247, 249,.5);
+    border: none;   
+}
+.course-logos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: rgb(223, 251, 252);
 }
