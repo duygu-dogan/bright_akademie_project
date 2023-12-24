@@ -16,9 +16,6 @@
     justify-content: center;
     height: 500px;
 }
-.floating-whatsapp-button{
-    bottom: 3rem !important;
-}
 
 @media screen and (max-width: 1000px) {
     .contact-content {

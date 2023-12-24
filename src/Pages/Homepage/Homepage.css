@@ -140,6 +140,9 @@
     box-shadow: 0 5px 20px 10px rgba(108, 44, 172, 0.5);
     transition-duration: .5s;
 }
+.floating-whatsapp-button {
+    bottom: 5rem !important;
+}
 
 @media screen and (max-width: 992px) {
     .main-title {

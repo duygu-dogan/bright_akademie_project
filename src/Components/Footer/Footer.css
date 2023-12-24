@@ -4,6 +4,7 @@
 .footer-bg {
     width: 100%;
     background-color: rgba(0, 0, 0, .5);
+    height: 60px;
 }
 @media screen and (max-width: 768px) {
     .logo {
