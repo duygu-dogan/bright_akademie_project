@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { Container, Image } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 // import logo from '../../Images/HeaderLogo.png'
 import { faFacebook, faInstagram, faXTwitter } from '@fortawesome/free-brands-svg-icons'
 import './Footer.css'

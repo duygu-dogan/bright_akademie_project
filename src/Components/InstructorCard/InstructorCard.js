@@ -1,21 +1,23 @@
 import React from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Button, Card, Col } from 'react-bootstrap'
+import './InstructorCard.css'
 
-const InstructorCard = () => {
+const InstructorCard = ({instructor}) => {
+
   return (
-    <>I
-          <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="holder.js/100px180" />
-              <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                      Some quick example text to build on the card title and make up the
-                      bulk of the card's content.
+    <>
+      <Col className='inscards' lg={4} md={6} sm={12}>
+          <Card className='inscard' style={{ width: '18rem' }}>
+              <Card.Img className='inscard-img' variant="top" src={instructor.profile_picture} />
+              <Card.Body className='inscard-body'>
+                  <Card.Title className='inscard-title'>{instructor.first_name + ' ' + instructor.last_name}</Card.Title>
+                  <Card.Text className='inscard-text'>
+                      {instructor.fields_of_work}
                   </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
+                  <Button className='inscard-btn' variant="primary">See Details</Button>
               </Card.Body>
           </Card>
-    
+      </Col>
     </>
   )
 }

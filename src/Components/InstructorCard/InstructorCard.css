@@ -1,0 +1,46 @@
+.inscards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.inscard {
+    width: 20rem !important;
+    height: 30rem;
+    padding: 20px 5px;
+    align-items: center;
+}
+
+.inscard-body{
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 10px;
+        margin-top: 10px;
+        padding: 0;
+}
+.inscard-img {
+    width: 70%;
+    height: 300px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 1px .5px 10px gray;
+}
+
+.inscard-title {
+    margin: 0;
+    color: cadetblue;
+}
+
+.inscard-text {
+    text-wrap: wrap;
+        font-size: 14px;
+}
+
+.inscard-btn {
+    margin-top: 5px;
+    font-size: 16px;
+    width: 8rem;
+}

@@ -9,7 +9,7 @@ import { FloatingWhatsApp } from 'react-floating-whatsapp'
 const Contact = () => {
     return (
         <>
-            <Container fluid className='p-0 main-page'>
+            <Container fluid className='p-0'>
                 <div className='bg-img2' style={{ backgroundImage: `url(${BgTechnoMain})`, backgroundRepeat: 'no-repeat', backgroundSize: "cover" }}>
                     <FloatingWhatsApp phoneNumber='+905558109862' accountName='Bright Akademie' statusMessage='Online' style={{ width: '150px', height: '150px' }} allowClickAway='true' avatar={logoImg} />
                         <div className='contact-content'>

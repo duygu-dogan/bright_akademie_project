@@ -7,12 +7,25 @@ import Courses from './Pages/Courses/Courses'
 import Instructors from './Pages/Instructors/Instructors'
 import Contact from './Pages/Contact/Contact'
 import { AppContext } from './Context/AppContext';
+import { useEffect, useState } from 'react';
+import Axios from 'axios';
+
+const baseURL = "https://my.api.mockaroo.com/bright_instructors.json?key=7f8af780";
 
 function App() {
+  const [instructor, setInstructor] = useState([]);
 
-  return (
+  useEffect(() =>{
+    Axios.get(`${baseURL}`)
+      .then((response)=>{
+        setInstructor(response.data);
+      })
+  }, []);
+  console.log(instructor)
+
+   return (
     <>
-      <AppContext.Provider>
+      <AppContext.Provider value={{instructor, setInstructor}}>
         <BrowserRouter>
           <Header />
           <Routes>
