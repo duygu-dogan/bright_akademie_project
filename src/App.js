@@ -9,6 +9,7 @@ import Contact from './Pages/Contact/Contact'
 import { AppContext } from './Context/AppContext';
 import { useEffect, useState } from 'react';
 import Axios from 'axios';
+import InstructorDetail from './Pages/InstructorDetail/InstructorDetail';
 
 const baseURL = "https://my.api.mockaroo.com/bright_instructors.json?key=7f8af780";
 
@@ -34,6 +35,7 @@ function App() {
             <Route path='/courses' element={<Courses/>} />
             <Route path='/instructors' element={<Instructors/>} />
             <Route path='/contact' element={<Contact/>} />
+            <Route path='/ins-detail' element={<InstructorDetail/>} />
           </Routes>
         </BrowserRouter>
 

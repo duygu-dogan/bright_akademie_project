@@ -1,20 +1,36 @@
-import React from 'react'
-import { Container } from 'react-bootstrap'
-import logo from '../../Images/HeaderLogo.png'
-import BgTechno from '../../Images/BgTechno.jpg'
+import React, { useContext } from 'react'
+import { Button, Card, Col, Container, Row } from 'react-bootstrap'
+import BgTechnoMain from '../../Images/BgTechno0.jpg'
+import Footer from '../../Components/Footer/Footer'
+import InstructorCard from '../../Components/InstructorCard/InstructorCard'
+import { FloatingWhatsApp } from 'react-floating-whatsapp'
+import logoImg from '../../Images/whatsapp.png'
+import { AppContext } from '../../Context/AppContext'
 
-const InstructorDetail = () => {
+const InstructorDetail = ({instructor}) => {
+    
   return (
       <>
           <Container fluid className='p-0 main-page'>
-              <div className='main-page-logo' style={{ backgroundImage: `url(${logo})`, backgroundRepeat: 'no-repeat', backgroundSize: '50rem', backgroundPositionY: 'center', backgroundPositionX: 'center' }}>
-                  <h1 className='main-title'></h1>
-                  <h3 className='sub-title'></h3>
-
-              </div>
-
-              <div className='bg-img' style={{ backgroundImage: `url(${BgTechno})`, backgroundRepeat: 'no-repeat', backgroundSize: "cover" }}>
-              </div>
+          <div className='bg-ins' style={{ backgroundImage: `url(${BgTechnoMain})`, backgroundRepeat: 'no-repeat', backgroundSize: "cover" }}>
+          <FloatingWhatsApp phoneNumber='+905558109862' accountName='Bright Akademie' statusMessage='Online' style={{ width: '150px', height: '150px' }} allowClickAway='true' avatar={logoImg} />
+          <Card style={{ width: '38rem' }}>
+            <Col>
+      <Card.Img variant="top" src={instructor.profile_picture} />
+      </Col>
+      <Col>
+      <Card.Body>
+        <Card.Title>{instructor.first_name + ' ' + instructor.last_name}</Card.Title>
+        <Card.Text>
+          Other Infos
+        </Card.Text>
+        <Button variant="primary">Go somewhere</Button>
+      </Card.Body>
+      </Col>
+    </Card>
+          <Footer />
+        </div>
+              
           </Container>
       </>
   )
