@@ -11,10 +11,12 @@ import { useEffect, useState } from 'react';
 import Axios from 'axios';
 import InstructorDetail from './Pages/InstructorDetail/InstructorDetail';
 
-const baseURL = "https://my.api.mockaroo.com/bright_instructors.json?key=7f8af780";
+const baseURL = "https://my.api.mockaroo.com/instructors?key=7f8af780";
+const config = { headers: { Authorization: `Bearer ${baseURL}`}}
 
 function App() {
   const [instructor, setInstructor] = useState([]);
+  const [insDetail, setInsDetail] = useState({});
 
   useEffect(() =>{
     Axios.get(`${baseURL}`)
@@ -22,11 +24,16 @@ function App() {
         setInstructor(response.data);
       })
   }, []);
-  console.log(instructor)
+  
+  const getIns = () =>{
+    Axios
+      .get(`https://my.api.mockaroo.com/instructors?key=7f8af780`, config)
+      .then((response) => {setInsDetail(response.data)});
+  }
 
    return (
     <>
-      <AppContext.Provider value={{instructor, setInstructor}}>
+      <AppContext.Provider value={{instructor, setInstructor, getIns, insDetail}}>
         <BrowserRouter>
           <Header />
           <Routes>
@@ -35,7 +42,7 @@ function App() {
             <Route path='/courses' element={<Courses/>} />
             <Route path='/instructors' element={<Instructors/>} />
             <Route path='/contact' element={<Contact/>} />
-            <Route path='/ins-detail' element={<InstructorDetail/>} />
+            <Route path={`/${instructor.first_name+'-'+instructor.last_name}`} element={<InstructorDetail/>} />
           </Routes>
         </BrowserRouter>
 

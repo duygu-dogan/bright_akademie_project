@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, Card, Col } from 'react-bootstrap'
 import './InstructorCard.css'
+import { NavLink } from 'react-router-dom'
+import { AppContext } from '../../Context/AppContext'
 
 const InstructorCard = ({instructor}) => {
-
+const context = useContext(AppContext);
   return (
     <>
       <Col className='inscards' lg={4} md={6} sm={12}>
@@ -14,7 +16,7 @@ const InstructorCard = ({instructor}) => {
                   <Card.Text className='inscard-text'>
                       {instructor.fields_of_work}
                   </Card.Text>
-                  <Button className='inscard-btn' variant="primary">See Details</Button>
+                  <NavLink onClick={()=> context.getIns()} to={`/${instructor.first_name+'-'+instructor.last_name}`} className='inscard-btn' variant="primary">See Details</NavLink>
               </Card.Body>
           </Card>
       </Col>
