@@ -12,11 +12,9 @@ import Axios from 'axios';
 import InstructorDetail from './Pages/InstructorDetail/InstructorDetail';
 
 const baseURL = "https://my.api.mockaroo.com/instructors?key=7f8af780";
-const config = { headers: { Authorization: `Bearer ${baseURL}`}}
 
 function App() {
   const [instructor, setInstructor] = useState([]);
-  const [insDetail, setInsDetail] = useState({});
 
   useEffect(() =>{
     Axios.get(`${baseURL}`)
@@ -24,16 +22,10 @@ function App() {
         setInstructor(response.data);
       })
   }, []);
-  
-  const getIns = () =>{
-    Axios
-      .get(`https://my.api.mockaroo.com/instructors?key=7f8af780`, config)
-      .then((response) => {setInsDetail(response.data)});
-  }
 
    return (
     <>
-      <AppContext.Provider value={{instructor, setInstructor, getIns, insDetail}}>
+      <AppContext.Provider value={{instructor, setInstructor}}>
         <BrowserRouter>
           <Header />
           <Routes>
@@ -42,7 +34,7 @@ function App() {
             <Route path='/courses' element={<Courses/>} />
             <Route path='/instructors' element={<Instructors/>} />
             <Route path='/contact' element={<Contact/>} />
-            <Route path={`/${instructor.first_name+'-'+instructor.last_name}`} element={<InstructorDetail/>} />
+            <Route path='/details/:id' element={<InstructorDetail/>} />
           </Routes>
         </BrowserRouter>
 

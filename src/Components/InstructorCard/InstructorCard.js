@@ -1,11 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Card, Col } from 'react-bootstrap'
 import './InstructorCard.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Navigate, useNavigate } from 'react-router-dom'
 import { AppContext } from '../../Context/AppContext'
+import InstructorDetail from '../../Pages/InstructorDetail/InstructorDetail'
 
 const InstructorCard = ({instructor}) => {
 const context = useContext(AppContext);
+const [isClicked, setIsClicked] = useState(false);
+
+const handleSeeDetailsClick = () =>{
+  setIsClicked(true);
+}
+if(isClicked){
+  return <Navigate to={`/details/${instructor.id}`}/>
+}
   return (
     <>
       <Col className='inscards' lg={4} md={6} sm={12}>
@@ -16,7 +25,7 @@ const context = useContext(AppContext);
                   <Card.Text className='inscard-text'>
                       {instructor.fields_of_work}
                   </Card.Text>
-                  <NavLink onClick={()=> context.getIns()} to={`/${instructor.first_name+'-'+instructor.last_name}`} className='inscard-btn' variant="primary">See Details</NavLink>
+                  <Button onClick={handleSeeDetailsClick} className='inscard-btn' variant="primary">See Details</Button>
               </Card.Body>
           </Card>
       </Col>
