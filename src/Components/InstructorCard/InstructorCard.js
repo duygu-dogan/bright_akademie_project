@@ -1,9 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { Button, Card, Col } from 'react-bootstrap'
 import './InstructorCard.css'
-import { NavLink, Navigate, useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { AppContext } from '../../Context/AppContext'
-import InstructorDetail from '../../Pages/InstructorDetail/InstructorDetail'
 
 const InstructorCard = ({instructor}) => {
 const context = useContext(AppContext);

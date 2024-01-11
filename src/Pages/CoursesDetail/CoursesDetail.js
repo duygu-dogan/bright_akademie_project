@@ -1,21 +1,45 @@
-import React from 'react'
-import { Container } from 'react-bootstrap'
-import logo from '../../Images/HeaderLogo.png'
-import BgTechno from '../../Images/BgTechno.jpg'
+import React, { useContext, useEffect, useState } from 'react'
+import { Card, Col, Container, Row } from 'react-bootstrap'
+import BgTechnoMain from '../../Images/BgTechno0.jpg'
+import { AppContext } from '../../Context/AppContext'
+import { useParams } from 'react-router-dom'
+import Footer from '../../Components/Footer/Footer'
+import { FloatingWhatsApp } from 'react-floating-whatsapp'
+import logoImg from '../../Images/whatsapp.png'
+import './CourseDetail.css'
 
 const CoursesDetail = () => {
+    const context = useContext(AppContext);
+    const [currentCourse, setCurrentCourse] = useState({});
+    const { id } = useParams();
+
+
+  useEffect(() => {
+    const foundCourse = context.courses.find(course => course.id === String(id));
+    setCurrentCourse(foundCourse);
+  }, [])
+    
     return (
         <>
-            <Container fluid className='p-0 main-page'>
-                <div className='main-page-logo' style={{ backgroundImage: `url(${logo})`, backgroundRepeat: 'no-repeat', backgroundSize: '50rem', backgroundPositionY: 'center', backgroundPositionX: 'center' }}>
-                    <h1 className='main-title'>Courses Detail</h1>
-                    <h3 className='sub-title'></h3>
+        <Container fluid className='p-0 main-page'>
+        <div className='bg-insdetail' style={{ backgroundImage: `url(${BgTechnoMain})`, backgroundRepeat: 'no-repeat', backgroundSize: "cover" }}>
+          <FloatingWhatsApp phoneNumber='+905558109862' accountName='Bright Akademie' statusMessage='Online' style={{ width: '150px', height: '150px' }} allowClickAway='true' avatar={logoImg} />
+          <Card className='card-detail' style={{ maxWidth: '60rem' }} >
+            <Row className='g-0'>
+              <Col md={7}>
+                <Card.Body className='card-detail-right'>
+                  <div className='card-detail-title'>
+                    <Card.Title className='m-0 fs-3'>{currentCourse.name} Course</Card.Title>
+                    <Card.Text>{currentCourse.why_this_course}</Card.Text>
+                  </div>
+                </Card.Body>
+              </Col>
+            </Row>
+          </Card>
+          <Footer />
+        </div>
 
-                </div>
-
-                <div className='bg-img' style={{ backgroundImage: `url(${BgTechno})`, backgroundRepeat: 'no-repeat', backgroundSize: "cover" }}>
-                </div>
-            </Container>
+      </Container>
         </>
     )
 }

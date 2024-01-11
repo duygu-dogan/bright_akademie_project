@@ -10,11 +10,19 @@ import { AppContext } from './Context/AppContext';
 import { useEffect, useState } from 'react';
 import Axios from 'axios';
 import InstructorDetail from './Pages/InstructorDetail/InstructorDetail';
+import CoursesDetail from './Pages/CoursesDetail/CoursesDetail';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+
 
 const baseURL = "https://my.api.mockaroo.com/instructors?key=7f8af780";
+const baseURLCourses = "https://mocki.io/v1/9c43500f-d10d-422e-9e33-f2696c9b32b9";
 
 function App() {
   const [instructor, setInstructor] = useState([]);
+  const [courses, setCourses] = useState([]);
 
   useEffect(() =>{
     Axios.get(`${baseURL}`)
@@ -23,9 +31,16 @@ function App() {
       })
   }, []);
 
+  useEffect(()=>{
+    Axios.get(`${baseURLCourses}`)
+    .then((res) =>{
+      setCourses(res.data);
+    })
+  }, []);
+
    return (
     <>
-      <AppContext.Provider value={{instructor, setInstructor}}>
+      <AppContext.Provider value={{instructor, setInstructor, courses, setCourses}}>
         <BrowserRouter>
           <Header />
           <Routes>
@@ -35,12 +50,15 @@ function App() {
             <Route path='/instructors' element={<Instructors/>} />
             <Route path='/contact' element={<Contact/>} />
             <Route path='/details/:id' element={<InstructorDetail/>} />
+            <Route path='/course-details/:id' element={<CoursesDetail/>} />
           </Routes>
         </BrowserRouter>
 
       </AppContext.Provider>
+      
     </>
   );
 }
 
 export default App;
+library.add(fab, fas, far);
