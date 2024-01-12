@@ -1,19 +1,16 @@
 import React, { useState } from 'react'
-import { useContext } from 'react'
-import { AppContext } from '../../Context/AppContext';
 import { Button, Card, Col, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './CourseCard.css'
 import { Navigate } from 'react-router-dom';
 
 const CourseCard = ({ courses }) => {
-  const context = useContext(AppContext);
   const [isBtnClicked, setIsBtnClicked] = useState(false);
   const handleDetailClick = () => {
     setIsBtnClicked(true);
   }
   if (isBtnClicked) {
-    return <Navigate to={`course-details/${courses.id}`}/>
+    return <Navigate to={`details/${courses.id}`}/>
   }
   return (
     <>

@@ -6,25 +6,26 @@ import { useParams } from 'react-router-dom'
 import Footer from '../../Components/Footer/Footer'
 import { FloatingWhatsApp } from 'react-floating-whatsapp'
 import logoImg from '../../Images/whatsapp.png'
-import './CourseDetail.css'
+import './CoursesDetail.css'
 
 const CoursesDetail = () => {
     const context = useContext(AppContext);
     const [currentCourse, setCurrentCourse] = useState({});
     const { id } = useParams();
-
+    console.log(context.courses)
 
   useEffect(() => {
-    const foundCourse = context.courses.find(course => course.id === String(id));
+    const foundCourse = context.courses.find(course => course.id == id);
     setCurrentCourse(foundCourse);
-  }, [])
+  }, []);
+  console.log(currentCourse);
     
     return (
         <>
         <Container fluid className='p-0 main-page'>
         <div className='bg-insdetail' style={{ backgroundImage: `url(${BgTechnoMain})`, backgroundRepeat: 'no-repeat', backgroundSize: "cover" }}>
           <FloatingWhatsApp phoneNumber='+905558109862' accountName='Bright Akademie' statusMessage='Online' style={{ width: '150px', height: '150px' }} allowClickAway='true' avatar={logoImg} />
-          <Card className='card-detail' style={{ maxWidth: '60rem' }} >
+          <Card className='course-card-detail' style={{ maxWidth: '70rem' }} >
             <Row className='g-0'>
               <Col md={7}>
                 <Card.Body className='card-detail-right'>

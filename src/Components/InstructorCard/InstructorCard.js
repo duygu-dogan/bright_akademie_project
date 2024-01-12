@@ -1,11 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { Button, Card, Col } from 'react-bootstrap'
 import './InstructorCard.css'
 import { Navigate } from 'react-router-dom'
 import { AppContext } from '../../Context/AppContext'
 
 const InstructorCard = ({instructor}) => {
-const context = useContext(AppContext);
 const [isClicked, setIsClicked] = useState(false);
 
 const handleSeeDetailsClick = () =>{

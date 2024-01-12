@@ -17,7 +17,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 
 
-const baseURL = "https://my.api.mockaroo.com/instructors?key=7f8af780";
+const baseURL = "https://mocki.io/v1/6958d6be-32e0-4130-94bd-a90dc81aba7b";
 const baseURLCourses = "https://mocki.io/v1/9c43500f-d10d-422e-9e33-f2696c9b32b9";
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
 
    return (
     <>
-      <AppContext.Provider value={{instructor, setInstructor, courses, setCourses}}>
+      <AppContext.Provider value={{instructor, courses}}>
         <BrowserRouter>
           <Header />
           <Routes>
@@ -50,10 +50,9 @@ function App() {
             <Route path='/instructors' element={<Instructors/>} />
             <Route path='/contact' element={<Contact/>} />
             <Route path='/details/:id' element={<InstructorDetail/>} />
-            <Route path='/course-details/:id' element={<CoursesDetail/>} />
+            <Route path='/courses/details/:id' element={<CoursesDetail/>} />
           </Routes>
         </BrowserRouter>
-
       </AppContext.Provider>
       
     </>

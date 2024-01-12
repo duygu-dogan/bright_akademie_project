@@ -7,3 +7,10 @@
     justify-content: space-between;
     align-items: center;
 }
+.course-card-detail{
+    margin-bottom: 30px;
+    padding: 40px;
+    justify-content: center;
+   width: 70rem;
+   height: 35rem;
+   }

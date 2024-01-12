@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Card, Col, Container, ListGroup, Row } from 'react-bootstrap'
+import { Card, Col, Container, Row } from 'react-bootstrap'
 import BgTechnoMain from '../../Images/BgTechno0.jpg'
 import Footer from '../../Components/Footer/Footer'
 import { FloatingWhatsApp } from 'react-floating-whatsapp'
@@ -12,7 +12,6 @@ const InstructorDetail = () => {
   const context = useContext(AppContext);
   const [currentIns, setCurrentIns] = useState({});
   const { id } = useParams();
-
 
   useEffect(() => {
     const foundIns = context.instructor.find(ins => ins.id === String(id));

@@ -13,23 +13,21 @@ import CourseCard from '../../Components/CourseCard/CourseCard'
 
 const Courses = () => {
   const context = useContext(AppContext);
- 
+
   return (
     <>
       <Container fluid className='p-0'>
 
         <div className='bg-img2' style={{ backgroundImage: `url(${BgTechnoMain})`, backgroundRepeat: 'no-repeat', backgroundSize: "cover" }}>
           <FloatingWhatsApp phoneNumber='+905558109862' accountName='Bright Akademie' statusMessage='Online' style={{ width: '150px', height: '150px' }} allowClickAway='true' avatar={logoImg} />
-            <Row>
-              <Col>
-            {context.courses.map(courses => <CourseCard key={courses.id} courses={courses} />)}
+          <Row>
+            <Col>
+              {context.courses.map(courses => <CourseCard key={courses.id} courses={courses} />)}
             </Col>
           </Row>
-        
-
-        <Footer></Footer>
-      </div>
-    </Container >
+          <Footer></Footer>
+        </div>
+      </Container >
     </>
   )
 }
