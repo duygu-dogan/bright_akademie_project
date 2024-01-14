@@ -72,7 +72,7 @@ const CoursesDetail = () => {
                   <div>
                     <Card.Title className='fs-5 detail-title mb-5'>Course Content</Card.Title>
                     <div className='row'>
-                      {contentArr.map((week, index) => <CourseContents key={index} week={week}/>)}
+                      {contentArr.map(week => <CourseContents week={week}/>)}
                     </div>
                   </div>
                 </Card.Body>
