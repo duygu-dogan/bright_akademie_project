@@ -24,37 +24,37 @@ function App() {
   const [instructor, setInstructor] = useState([]);
   const [courses, setCourses] = useState([]);
 
-  useEffect(() =>{
+  useEffect(() => {
     Axios.get(`${baseURL}`)
-      .then((response)=>{
+      .then((response) => {
         setInstructor(response.data);
       })
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     Axios.get(`${baseURLCourses}`)
-    .then((res) =>{
-      setCourses(res.data);
-    })
+      .then((res) => {
+        setCourses(res.data);
+      })
   }, []);
 
-   return (
+  return (
     <>
-      <AppContext.Provider value={{instructor, courses}}>
+      <AppContext.Provider value={{ instructor, courses }}>
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route path='/' element={<Homepage/>} />
-            <Route path='/about-us' element={<AboutUs/>} />
-            <Route path='/courses' element={<Courses/>} />
-            <Route path='/instructors' element={<Instructors/>} />
-            <Route path='/contact' element={<Contact/>} />
-            <Route path='/details/:id' element={<InstructorDetail/>} />
-            <Route path='/courses/details/:id' element={<CoursesDetail/>} />
+            <Route path='/' element={<Homepage />} />
+            <Route path='/about-us' element={<AboutUs />} />
+            <Route path='/courses' element={<Courses />} />
+            <Route path='/instructors' element={<Instructors />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='details/:id' element={<InstructorDetail />} />
+            <Route path='/courses/details/:id' element={<CoursesDetail />} />
           </Routes>
         </BrowserRouter>
       </AppContext.Provider>
-      
+
     </>
   );
 }

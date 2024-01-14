@@ -1,9 +1,26 @@
-.col{
-    display: flex;
-    justify-content: center;
-}
-
-.row{
+.row {
     justify-content: center;
     align-items: center;
+    width: 100%;
+}
+
+.bg-img3 {
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+@media screen and (max-width: 1144px) {
+    .bg-img3 {
+        height: 1250px;
+    }
+}
+
+@media screen and (max-width: 757px) {
+    .bg-img3 {
+        height: 1780px;
+    }
 }

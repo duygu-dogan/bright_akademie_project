@@ -1,4 +1,12 @@
 
+.bg-img1 {
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
 .contact-content{
     display: flex;
     width: 80vw;
@@ -34,7 +42,7 @@
     }
 }
 @media screen and (max-width: 1000px) {
-    .bg-img2{
+    .bg-img1{
         height: 1300px;
     }
 }
