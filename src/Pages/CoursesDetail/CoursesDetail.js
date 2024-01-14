@@ -11,6 +11,7 @@ import forWhoImg from '../../Images/for_who.png'
 import education from '../../Images/education.png'
 import './CoursesDetail.css'
 import CourseContents from '../../Components/CourseContents/CourseContents'
+import { v4 as uuidv4 } from 'uuid';
 
 const CoursesDetail = () => {
   const context = useContext(AppContext);
@@ -21,14 +22,14 @@ const CoursesDetail = () => {
   useEffect(() => {
     const foundCourse = context.courses.find(course => course.id == id);
     setCurrentCourse(foundCourse);
-  }, []);
+  }, [context.courses, id]);
 
   useEffect(() => {
     if (currentCourse && currentCourse.educational_content && currentCourse.educational_content.weeks) {
       const weeksArray = currentCourse.educational_content.weeks;
       setContentArr(weeksArray);
     }
-  }, []);
+  }, [currentCourse]);
 
   return (
     <>
@@ -72,7 +73,7 @@ const CoursesDetail = () => {
                   <div>
                     <Card.Title className='fs-5 detail-title mb-5'>Course Content</Card.Title>
                     <div className='row'>
-                      {contentArr.map(week => <CourseContents week={week}/>)}
+                      {contentArr.map(week => <CourseContents key={uuidv4()} week={week}/>)}
                     </div>
                   </div>
                 </Card.Body>
