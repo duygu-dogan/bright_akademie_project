@@ -1,6 +1,6 @@
 .bg-coursedetail {
     height: auto;
-    width: 100vw;
+    width: auto;
     box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, .6);
     display: flex;
     flex-direction: column;

@@ -12,7 +12,6 @@ const CourseContents = ({ week }) =>
     if (week && week.topics) {
       const topic = week.topics.map((topic) => <li key={uuidv4()}>{topic}</li>);
       setListTopics(topic);
-      console.log(listTopics)
     }
   }, [week, week.topics])
   

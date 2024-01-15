@@ -82,7 +82,7 @@
     color: var(--lightest-color);
     font-size: 2.5rem;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .sub-title2 {
@@ -103,7 +103,7 @@
 }
 
 .main-item {
-    margin-top: 60px;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,10 +144,37 @@
 .floating-whatsapp-button {
     bottom: 5rem !important;
 }
+.react-3d-carousel{
+    height: 700px !important;
+    background-color: #1d1f22;
+    background-image: linear-gradient(to bottom left, rgb(0, 1, 2), rgb(5, 21, 53));
+}
+.slider-single-content{
+   margin-top: 120px;
+}
+.slider-left div, .slider-right div{
+    border: 2px solid #E26EE5 !important;
+    border-radius: 6px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+.slider-right, .slider-left{
+    margin-top: 50px;
+}
+.slider-right div:hover, .slider-left div:hover{
+    background-color: rgb(226, 110, 229, .5);
+}
 
 @media screen and (max-width: 992px) {
     .main-title {
         font-size: 3rem;
+    }
+    .react-3d-carousel{
+        height: 750px !important;
+    }
+    .main-page-bg{
+        height: 750px;
     }
 }
 
@@ -155,13 +182,24 @@
     .main-title {
         font-size: 2.5rem;
     }
+    .react-3d-carousel{
+        height: 800px !important;
+    }
+    .main-page-bg{
+        height: 800px;
+    }
 }
 
 @media screen and (max-width: 1100px) {
-
+    .main-page-bg{
+        height: 700px;
+    }
     .main-item-text {
         font-size: 1rem;
     }
+    .slider-single-content{
+        margin-top: 80px;
+     }
 }
 @media screen and (max-width: 991px){
     .bg-img {
@@ -172,4 +210,11 @@
     .bg-img {
         height: 2800px;
     }
+    .main-page-bg{
+        height: 800px;
+    }
+    .react-3d-carousel{
+        height: 1000px !important;
+    }
 }
+

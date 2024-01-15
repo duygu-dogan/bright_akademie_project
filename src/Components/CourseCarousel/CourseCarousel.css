@@ -1,0 +1,41 @@
+.carousel-icon{
+    width: 250px; 
+    height:250px;
+    color: rgb(223, 251, 252)
+}
+.carousel-card{
+    width: 700px;
+}
+
+@media screen and (max-width: 1200px) {
+    .carousel-icon{
+        width: 200px;
+        height: 200px;
+    }
+    .carousel-card{
+        height: 550px !important;
+    }
+}
+@media screen and (max-width: 930px) {
+    .carousel-icon{
+        width: 150px;
+        height: 150px;
+    }
+    .carousel-card{
+        height: 650px !important;
+    }
+}
+@media screen and (max-width: 685px) {
+    .carousel-icon{
+        width: 120px;
+        height: 120px;
+    }
+    .carousel-card{
+        height: 700px !important;
+    }
+}
+@media screen and (max-width: 550px) {
+    .carousel-card{
+        height: 880px !important;
+    }
+}
