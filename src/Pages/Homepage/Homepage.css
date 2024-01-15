@@ -149,29 +149,24 @@
     background-color: #1d1f22;
     background-image: linear-gradient(to bottom left, rgb(0, 1, 2), rgb(5, 21, 53));
 }
-.slider-single-content{
-   margin-top: 120px;
+
+.react-responsive-3d-carousel__carousel{
+    height: 500px !important;
+    background-image: linear-gradient(to bottom left, rgb(0, 1, 2), rgb(3, 11, 29));
 }
-.slider-left div, .slider-right div{
-    border: 2px solid #E26EE5 !important;
-    border-radius: 6px;
-    height: 70px;
-    display: flex;
-    align-items: center;
+.react-responsive-3d-carousel__carousel__item{
+    width: 1000px !important;
+    height: 500px !important;
+    background-color: rgba(0, 0, 0, .3);
 }
-.slider-right, .slider-left{
-    margin-top: 50px;
+.react-responsive-3d-carousel__status{
+    display: none;
 }
-.slider-right div:hover, .slider-left div:hover{
-    background-color: rgb(226, 110, 229, .5);
-}
+
 
 @media screen and (max-width: 992px) {
     .main-title {
         font-size: 3rem;
-    }
-    .react-3d-carousel{
-        height: 750px !important;
     }
     .main-page-bg{
         height: 750px;
@@ -181,9 +176,6 @@
 @media screen and (max-width: 768px) {
     .main-title {
         font-size: 2.5rem;
-    }
-    .react-3d-carousel{
-        height: 800px !important;
     }
     .main-page-bg{
         height: 800px;
@@ -197,9 +189,6 @@
     .main-item-text {
         font-size: 1rem;
     }
-    .slider-single-content{
-        margin-top: 80px;
-     }
 }
 @media screen and (max-width: 991px){
     .bg-img {
@@ -211,10 +200,7 @@
         height: 2800px;
     }
     .main-page-bg{
-        height: 800px;
-    }
-    .react-3d-carousel{
-        height: 1000px !important;
+        height: 900px;
     }
 }
 

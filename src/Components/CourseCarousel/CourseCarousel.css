@@ -3,9 +3,7 @@
     height:250px;
     color: rgb(223, 251, 252)
 }
-.carousel-card{
-    width: 700px;
-}
+
 
 @media screen and (max-width: 1200px) {
     .carousel-icon{

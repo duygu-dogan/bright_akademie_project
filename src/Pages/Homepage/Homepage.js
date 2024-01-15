@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { Button, Col, Container, Row } from 'react-bootstrap'
 import BgTechnoMain from '../../Images/BgTechno0.jpg'
 import logoImg from '../../Images/HeaderLogo-img.png'
@@ -7,23 +7,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBriefcase, faBuilding, faExclamation, faLaptopCode, faPeopleGroup, faUserTie, faUsersRectangle } from '@fortawesome/free-solid-svg-icons'
 import Footer from '../../Components/Footer/Footer'
 import { FloatingWhatsApp } from 'react-floating-whatsapp'
-import {Carousel} from '3d-react-carousal';
 import { AppContext } from '../../Context/AppContext'
 import CourseCarousel from '../../Components/CourseCarousel/CourseCarousel'
+import {v4 as uuid} from 'uuid'
+import { Carousel } from 'react-responsive-3d-carousel'
 
 //Küçük ekranda aşağı taşma sorunu var
 const Homepage = () => {
   const context = useContext(AppContext);
 
-  let slides = context.courses?.map(course =>
-      <CourseCarousel 
-      key = {course.id}
-        id={course?.id}
-        name={course?.name}
-        why_this_training={course?.why_this_training}
-        icon={course?.icon}      
-      />)
-
+  // let slides = 
   return (
     <>
       <Container fluid className='p-0'>
@@ -34,7 +27,17 @@ const Homepage = () => {
           <FloatingWhatsApp phoneNumber='+905558109862' accountName='Bright Akademie' statusMessage='Online' style={{ width: '150px', height: '150px' }} allowClickAway='true' avatar={logoImg} />
         </div>
 
-        <Carousel style={{backgroundColor: "#1d1f22"}} slides={slides} autoplay={true} interval={4000}/>
+        <Carousel className="react-3d-carousel">
+      {context.courses?.map(course =>
+      <CourseCarousel 
+      key = {uuid()}
+        id={course?.id}
+        name={course?.name}
+        why_this_training={course?.why_this_training}
+        icon={course?.icon}      
+      />)
+}
+        </Carousel>
 
         <div className='bg-img' style={{ backgroundImage: `url(${BgTechnoMain})`, backgroundRepeat: 'no-repeat', backgroundSize: "cover" }}>
           <h1 className='main-title2'>So what does <span style={{ color: "#f43dd9" }}>Bright</span> promise you?</h1>

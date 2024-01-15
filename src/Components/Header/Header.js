@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Navbar, Nav, NavbarBrand, Offcanvas, Image } from 'react-bootstrap';
 import logo from '../../Images/HeaderLogo.png';
 import "./Header.css"
@@ -7,11 +7,32 @@ import { NavLink } from 'react-router-dom';
 //offcanvas'ta linke tıklandığında kendisinin kapanması gerekli.
 
 function Header() {
-    const[scroll, setScroll] = useState(false);
+    const [scroll, setScroll] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false)
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+    const toggleMenu = () => {
+        if (windowWidth <= 992) {
+            setMenuOpen(!menuOpen);
+        }
+    };
+
+    const handleClose = () => setMenuOpen(false)
     const changeNavbarColor = () => {
-        if(window.scrollY >= 90){
+        if (window.scrollY >= 90) {
             setScroll(true)
-        }else{
+        } else {
             setScroll(false)
         }
     };
@@ -24,27 +45,30 @@ function Header() {
                     <Container fluid className='mx-5'>
                         <NavbarBrand>
                             <NavLink className='nav-link' to="/">
-                                <Image className='logo' src={logo}/>
+                                <Image className='logo' src={logo} />
                             </NavLink>
                         </NavbarBrand>
-                        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+                        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={toggleMenu} />
                         <Navbar.Offcanvas
                             id={`offcanvasNavbar-expand-${expand}`}
                             aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
                             placement="end"
+                            restoreFocus={false}
+                            show={menuOpen}
+                            onHide={handleClose}
                             className="offcanvas">
                             <Offcanvas.Header closeButton>
                                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} >
-                                    <Image className='logo' src={logo}/>
+                                    <Image className='logo' src={logo} />
                                 </Offcanvas.Title>
                             </Offcanvas.Header>
                             <Offcanvas.Body className='pt-0'>
                                 <Nav className='justify-content-end flex-grow-1 pe-3'>
-                                    <NavLink className='nav-link' to="/" aria-current="page">Home</NavLink>
-                                    <NavLink className='nav-link' to='/about-us'>About Us</NavLink>
-                                    <NavLink className='nav-link' to='/courses'>Courses</NavLink>
-                                    <NavLink className='nav-link' to='/instructors'>Instructors</NavLink>
-                                    <NavLink className='nav-link' to='/contact'>Contact</NavLink>
+                                    <NavLink onClick={expand && toggleMenu} className='nav-link' to="/" aria-current="page">Home</NavLink>
+                                    <NavLink onClick={expand && toggleMenu} className='nav-link' to='/about-us'>About Us</NavLink>
+                                    <NavLink onClick={expand && toggleMenu} className='nav-link' to='/courses'>Courses</NavLink>
+                                    <NavLink onClick={expand && toggleMenu} className='nav-link' to='/instructors'>Instructors</NavLink>
+                                    <NavLink onClick={expand && toggleMenu} className='nav-link' to='/contact'>Contact</NavLink>
                                 </Nav>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>
