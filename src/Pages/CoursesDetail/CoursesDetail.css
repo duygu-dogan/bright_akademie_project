@@ -32,7 +32,11 @@
     }
 }
 @media screen and (max-width: 1040px) { 
-    .course-card-detail img{
+    .course-detail-img{
+       width: 100%;
+       justify-content: center;
+    }
+    .why-img{
         display: none;
     }
     .course-detail-body{

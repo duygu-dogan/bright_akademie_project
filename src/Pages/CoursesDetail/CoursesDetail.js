@@ -48,12 +48,12 @@ const CoursesDetail = () => {
                     <Card.Title className='fs-5 mb-4 detail-title'>Why should you choose this course?</Card.Title>
                     <Card.Text className='detail-text'>{currentCourse?.why_this_training}</Card.Text>
                     </div>
-                    <div className='col-md-5'>
+                    <div className='col-md-5 why-img'>
                       <img style={{width: "400px", height:"400px"}} src={whyImg} alt=''></img>
                     </div>
                   </div>
                   <div className='row mb-5'>
-                    <div className='col-md-5 d-flex'>
+                    <div className='col-md-5 d-flex course-detail-img'>
                       <img className='for-who' src={forWhoImg} alt=''></img>
                     </div>
                     <div className='col-md-5 course-detail-body'>
@@ -66,7 +66,7 @@ const CoursesDetail = () => {
                     <Card.Title className='fs-5 mb-4 detail-title'>Educational Requirements</Card.Title>
                     <Card.Text className='detail-text'>{currentCourse?.educational_conditions}</Card.Text>
                     </div>
-                    <div className='col-md-5'>
+                    <div className='col-md-5 course-detail-img'>
                       <img style={{width: "300px", height:"250px"}} src={education} alt=''></img>
                     </div>
                   </div>
