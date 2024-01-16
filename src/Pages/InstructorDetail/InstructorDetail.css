@@ -82,3 +82,19 @@ height: 35rem;
         bottom: -20px;
     }
 }
+@media screen and (max-width: 500px) {
+    .card-detail{
+        width: 300px;
+        height: 75%;
+        align-items: center;
+        padding: 0 10px;
+    }
+    .card-detail-left img{
+       display: flex;
+       height: 350px;
+       width: 90%;
+    }
+    .bg-insdetail{
+        height: 1250px;
+    }
+}

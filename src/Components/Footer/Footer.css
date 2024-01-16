@@ -4,12 +4,9 @@
 .footer-bg {
     width: 100%;
     background-color: rgba(0, 0, 0, .5);
-    height: 60px;
+    height: 70px;
 }
-.footer-icons{
-    align-items: center !important;
-    justify-self: center !important;
-}
+
 @media screen and (max-width: 768px) {
     .logo {
         width: 200px;
@@ -18,5 +15,12 @@
 @media screen and (max-width: 612px) {
     .logo {
         width: 150px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .footer-bg{
+        height: 80px;
+        flex-direction: column;
+        padding: 15px 15px !important;
     }
 }
