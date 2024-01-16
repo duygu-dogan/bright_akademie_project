@@ -12,6 +12,8 @@ import education from '../../Images/education.png'
 import './CoursesDetail.css'
 import CourseContents from '../../Components/CourseContents/CourseContents'
 import { v4 as uuidv4 } from 'uuid';
+import LoadingOverlay from 'react-loading-overlay-nextgen'
+import { InfinitySpin } from 'react-loader-spinner'
 
 const CoursesDetail = () => {
   const context = useContext(AppContext);
@@ -31,59 +33,79 @@ const CoursesDetail = () => {
     }
   }, [currentCourse]);
 
+  const [isActive, setIsActive] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => setIsActive(false), 1000)
+  }, [])
+
   return (
     <>
-      <Container fluid className='p-0 main-course-details'>
-        <div className='bg-coursedetail' style={{ backgroundImage: `url(${BgTechnoMain})`, backgroundRepeat: 'no-repeat', backgroundSize: "cover" }}>
-          <FloatingWhatsApp phoneNumber='+905558109862' accountName='Bright Akademie' statusMessage='Online' style={{ width: '150px', height: '150px' }} allowClickAway='true' avatar={logoImg} />
-          <Card className='course-card-detail' style={{ maxWidth: '75rem' }} >
-            <Row className='g-0'>
-              <Col md={12}>
-                <Card.Body>
-                  <div className='card-detail-title m-0'>
-                    <Card.Title style={{color:"#E26EE5"}} className='mb-3 fs-3'>{currentCourse?.name} Course</Card.Title>
-                  </div>
-                  <div className='row mb-3'>
-                    <div className='col-md-5 course-detail-body'>
-                    <Card.Title className='fs-5 mb-4 detail-title'>Why should you choose this course?</Card.Title>
-                    <Card.Text className='detail-text'>{currentCourse?.why_this_training}</Card.Text>
+      <LoadingOverlay
+        active={isActive}
+        styles={{
+          wrapper: {
+            width: '100%',
+            height: '100vh'
+          }
+        }}
+        spinner={<InfinitySpin
+          width='200'
+          color='#E26EE5'
+        />}
+      >
+        <Container fluid className='p-0 main-course-details'>
+          <div className='bg-coursedetail' style={{ backgroundImage: `url(${BgTechnoMain})`, backgroundRepeat: 'no-repeat', backgroundSize: "cover" }}>
+            <FloatingWhatsApp phoneNumber='+905558109862' accountName='Bright Akademie' statusMessage='Online' style={{ width: '150px', height: '150px' }} allowClickAway='true' avatar={logoImg} />
+            <Card className='course-card-detail' style={{ maxWidth: '75rem' }} >
+              <Row className='g-0'>
+                <Col md={12}>
+                  <Card.Body>
+                    <div className='card-detail-title m-0'>
+                      <Card.Title style={{ color: "#E26EE5" }} className='mb-3 fs-3'>{currentCourse?.name} Course</Card.Title>
                     </div>
-                    <div className='col-md-5 why-img'>
-                      <img style={{width: "400px", height:"400px"}} src={whyImg} alt=''></img>
+                    <div className='row mb-3'>
+                      <div className='col-md-5 course-detail-body'>
+                        <Card.Title className='fs-5 mb-4 detail-title'>Why should you choose this course?</Card.Title>
+                        <Card.Text className='detail-text'>{currentCourse?.why_this_training}</Card.Text>
+                      </div>
+                      <div className='col-md-5 why-img'>
+                        <img style={{ width: "400px", height: "400px" }} src={whyImg} alt=''></img>
+                      </div>
                     </div>
-                  </div>
-                  <div className='row mb-5'>
-                    <div className='col-md-5 d-flex course-detail-img'>
-                      <img className='for-who' src={forWhoImg} alt=''></img>
+                    <div className='row mb-5'>
+                      <div className='col-md-5 d-flex course-detail-img'>
+                        <img className='for-who' src={forWhoImg} alt=''></img>
+                      </div>
+                      <div className='col-md-5 course-detail-body'>
+                        <Card.Title className='fs-5 mb-4 detail-title'>Who is this course for?</Card.Title>
+                        <Card.Text className='detail-text'>{currentCourse?.who_is_this_for}</Card.Text>
+                      </div>
                     </div>
-                    <div className='col-md-5 course-detail-body'>
-                    <Card.Title className='fs-5 mb-4 detail-title'>Who is this course for?</Card.Title>
-                    <Card.Text className='detail-text'>{currentCourse?.who_is_this_for}</Card.Text>
+                    <div className='row mb-5'>
+                      <div className='col-md-5 course-detail-body'>
+                        <Card.Title className='fs-5 mb-4 detail-title'>Educational Requirements</Card.Title>
+                        <Card.Text className='detail-text'>{currentCourse?.educational_conditions}</Card.Text>
+                      </div>
+                      <div className='col-md-5 course-detail-img'>
+                        <img style={{ width: "300px", height: "250px" }} src={education} alt=''></img>
+                      </div>
                     </div>
-                  </div>
-                  <div className='row mb-5'>
-                    <div className='col-md-5 course-detail-body'>
-                    <Card.Title className='fs-5 mb-4 detail-title'>Educational Requirements</Card.Title>
-                    <Card.Text className='detail-text'>{currentCourse?.educational_conditions}</Card.Text>
+                    <div>
+                      <Card.Title className='fs-5 detail-title mb-5'>Course Content</Card.Title>
+                      <div className='row'>
+                        {contentArr.map(week => <CourseContents key={uuidv4()} week={week} />)}
+                      </div>
                     </div>
-                    <div className='col-md-5 course-detail-img'>
-                      <img style={{width: "300px", height:"250px"}} src={education} alt=''></img>
-                    </div>
-                  </div>
-                  <div>
-                    <Card.Title className='fs-5 detail-title mb-5'>Course Content</Card.Title>
-                    <div className='row'>
-                      {contentArr.map(week => <CourseContents key={uuidv4()} week={week}/>)}
-                    </div>
-                  </div>
-                </Card.Body>
-              </Col>
-            </Row>
-          </Card>
-          <Footer />
-        </div>
+                  </Card.Body>
+                </Col>
+              </Row>
+            </Card>
+            <Footer />
+          </div>
 
-      </Container>
+        </Container>
+      </LoadingOverlay>
     </>
   )
 }

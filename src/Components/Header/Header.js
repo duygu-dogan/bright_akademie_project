@@ -67,6 +67,7 @@ function Header() {
                                     <NavLink onClick={toggleMenu} className='nav-link' to="/" aria-current="page">Home</NavLink>
                                     <NavLink onClick={toggleMenu} className='nav-link' to='/about-us'>About Us</NavLink>
                                     <NavDropdown title="Courses" id="basic-nav-dropdown">
+                                        <NavDropdown.Item onClick={toggleMenu} href="/courses">All Courses</NavDropdown.Item>
                                         <NavDropdown.Item onClick={toggleMenu} href="/courses/details/1">Full Stack Programming</NavDropdown.Item>
                                         <NavDropdown.Item onClick={toggleMenu} href="/courses/details/2">
                                             Network, System, and Cyber Security

@@ -34,6 +34,7 @@ height: 35rem;
 }
 .card-detail-right{
     text-align: justify;
+    position: relative;
 }
 .ins-props{
     display: flex;
@@ -42,7 +43,18 @@ height: 35rem;
     list-style-type:circle;
     
 }
-
+.backBtn{
+    border:1px solid; 
+    width: 70px;
+    height:50px;
+    position: absolute;
+    right: 0; 
+    bottom: 0;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 @media screen and (max-width: 992px) {
     .card-detail {
         width: 50rem;
@@ -60,5 +72,13 @@ height: 35rem;
     }
     .bg-insdetail{
         height: 1200px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .card-detail {
+        width: 350px;
+    }
+    .backBtn{
+        bottom: -20px;
     }
 }

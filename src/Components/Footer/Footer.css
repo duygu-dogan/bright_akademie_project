@@ -6,6 +6,10 @@
     background-color: rgba(0, 0, 0, .5);
     height: 60px;
 }
+.footer-icons{
+    align-items: center !important;
+    justify-self: center !important;
+}
 @media screen and (max-width: 768px) {
     .logo {
         width: 200px;

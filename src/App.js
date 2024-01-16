@@ -16,31 +16,36 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 
-
-const baseURL = "https://mocki.io/v1/6958d6be-32e0-4130-94bd-a90dc81aba7b";
 const baseURLCourses = "https://mocki.io/v1/9c43500f-d10d-422e-9e33-f2696c9b32b9";
+const baseURL = "https://mocki.io/v1/6958d6be-32e0-4130-94bd-a90dc81aba7b";
 
 function App() {
-  const [instructor, setInstructor] = useState([]);
   const [courses, setCourses] = useState([]);
-
-  useEffect(() => {
-    Axios.get(`${baseURL}`)
-      .then((response) => {
-        setInstructor(response.data);
-      })
-  }, []);
+  const [instructorArr, setInstructorArr] = useState([]);
 
   useEffect(() => {
     Axios.get(`${baseURLCourses}`)
       .then((res) => {
         setCourses(res.data);
       })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      })
+  }, []);
+
+  useEffect(() => {
+    Axios.get(`${baseURL}`)
+      .then((response) => {
+        setInstructorArr(response.data)
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      })
   }, []);
 
   return (
     <>
-      <AppContext.Provider value={{ instructor, courses }}>
+      <AppContext.Provider value={{ courses, instructorArr }}>
         <BrowserRouter>
           <Header />
           <Routes>

@@ -18,9 +18,12 @@
     "react-dom": "^18.2.0",
     "react-floating-whatsapp": "^5.0.8",
     "react-id-generator": "^3.0.2",
+    "react-loader-spinner": "^6.1.6",
+    "react-loading-overlay-nextgen": "^1.2.9",
     "react-responsive-3d-carousel": "^1.4.1",
     "react-router-dom": "^6.21.1",
     "react-scripts": "^5.0.1",
+    "react-spinners": "^0.13.8",
     "uuid": "^9.0.1",
     "web-vitals": "^2.1.4"
   },

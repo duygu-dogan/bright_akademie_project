@@ -95,11 +95,11 @@
     line-height: 35px;
 }
 
-.row-container {
+.main-items {
     flex-wrap: wrap;
     align-content: center;
     justify-content: space-around;
-    width: 70vw;
+    width: 70vw !important;
 }
 
 .main-item {
@@ -108,12 +108,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
 .main-item-bg {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -133,13 +132,14 @@
     color: var(--lightest-color);
     font-weight: 500;
     font-family: Montserrat;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    text-align: center;
 }
 
 .main-item-bg:hover {
     background-color: rgba(92, 68, 227, 0.55);
-    box-shadow: 0 5px 20px 10px rgba(108, 44, 172, 0.5);
-    transition-duration: .5s;
+    box-shadow: 0 5px 20px 20px rgba(108, 44, 172, 0.5);
+    transition-duration: .3s;
 }
 .floating-whatsapp-button {
     bottom: 5rem !important;

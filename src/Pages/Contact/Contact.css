@@ -46,3 +46,8 @@
         height: 1300px;
     }
 }
+@media screen and (max-width: 600px) {
+    .map {
+        width: 350px;
+    }
+}

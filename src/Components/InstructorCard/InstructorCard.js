@@ -7,7 +7,7 @@ const InstructorCard = ({ instructor }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleSeeDetailsClick = () => {
-    setIsClicked(true);
+    setIsClicked(true)
   }
   if (isClicked) {
     return <Navigate to={`/details/${instructor.id}`} />

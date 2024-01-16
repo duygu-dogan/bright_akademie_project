@@ -7,6 +7,10 @@
     justify-content: space-between;
     align-items: center;
 }
+.course-detail-img{
+   display: flex;
+   justify-content: center;
+}
 
 .course-card-detail {
     margin-bottom: 30px;
